@@ -1,0 +1,2 @@
+class FactoryQueue < ApplicationRecord
+end

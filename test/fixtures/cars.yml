@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wheels: MyString
+  chassis: MyString
+  laser: MyString
+  computer: MyString
+  engine: MyString
+  year: 
+  cost: 
+  virtual_stock: MyString
+
+two:
+  wheels: MyString
+  chassis: MyString
+  laser: MyString
+  computer: MyString
+  engine: MyString
+  year: 
+  cost: 
+  virtual_stock: MyString
