@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_13_185811) do
+ActiveRecord::Schema.define(version: 2021_03_13_212655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,10 +26,11 @@ ActiveRecord::Schema.define(version: 2021_03_13_185811) do
     t.string "virtual_stock"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "model_id"
   end
 
   create_table "factory_queues", force: :cascade do |t|
-    t.string "type"
+    t.string "queue_type"
     t.integer "car_id"
     t.integer "order_id"
     t.boolean "processed"
