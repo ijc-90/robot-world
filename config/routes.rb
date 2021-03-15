@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 	post "/process_queue/:queue/:quantity", to: "factory_queue#process_queue"
 
 	post "/quality_control_and_transportation", to: "quality_control_and_transportation#move_to_destination"
-	
+
+	post "/purchase", to: "sale#purchase_random_car"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
