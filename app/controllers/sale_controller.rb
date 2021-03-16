@@ -17,7 +17,7 @@ class SaleController < ApplicationController
     if car_for_sale.length() == 1
         car = car_for_sale[0]
         car.virtual_stock = 'sold'
-        sale = Sale.new(car_id: car.id, price: 10.0 )
+        sale = Sale.new(car_id: car.id, price: 10.0, status:"sold" )
         sale.save()
         car.save()
         response = {
