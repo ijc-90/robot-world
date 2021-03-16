@@ -49,5 +49,5 @@ end
 
 every :minute do 
 	#create 10 cars every minute
-	command 'ruby /Users/joaquinconsoni/workspace/robot-world/robot-world/scripts/bla.rb > ~/Desktop/robot-world-output.txt' 
+	command 'ruby /Users/joaquinconsoni/workspace/robot-world/robot-world/scripts/purchase-robot.rb > ~/Desktop/robot-world-output.txt' 
 end

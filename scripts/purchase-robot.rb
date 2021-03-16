@@ -3,14 +3,22 @@ require 'net/http'
 require 'json'
 
 
-args = {}
-url =  URI("http://localhost:3000/purchase")
-response = Net::HTTP.post_form(url,  args)
+#harcoded models. TODO: replace with request /models
+models = [2,3,4,5,6,7,8,9,10]
+l = models.length()
+model = models[rand(l)]
 
-#puts "start"
+
+
+args = {}
+url =  URI("http://localhost:3000/purchase/#{model}")
+response = Net::HTTP.post_form(url, args)
+
+
+
 if response.code.to_i == 200
 	r_body = JSON.parse(response.body)
-#	puts r_body
+
 	if r_body['success']
 		puts "purchase car of model #{r_body['model_name']}"
 	else
