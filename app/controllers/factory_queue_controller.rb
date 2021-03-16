@@ -51,5 +51,8 @@ class FactoryQueueController < ApplicationController
   			queue_item.save()
   		end
   	end
+
+    render :layout => false , :json => "{queue: #{params[:queue]}, quantity: #{params[:quantity]} }"
+
   end
 end

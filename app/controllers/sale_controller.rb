@@ -29,11 +29,19 @@ class SaleController < ApplicationController
         }.to_json
         render :layout => false , :json => response
     else
+        factory_stock = Car.where("virtual_stock = 'factory_stock' and model_id = #{model.id}").limit(1)
+        if factory_stock.length() > 0
+            factory_stock_available = true
+        else
+            factory_stock_available = false
+        end
+
         @success = false
         response = {
             success: false,
             model_id: model.id,
-            model_name: model.name
+            model_name: model.name,
+            available_in_factory: factory_stock_available
         }
         render :layout => false , :json => response
     end

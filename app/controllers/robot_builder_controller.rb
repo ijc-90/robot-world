@@ -16,7 +16,7 @@ class RobotBuilderController < ApplicationController
     	enqueue = FactoryQueue.new( queue_type:'basic' ,car_id:car.id, processed: false ) 
     	enqueue.save()
     end
-    @created_cars = created_cars
+    render :layout => false , :json => "{created_cars: #{params[:quantity]}}"
     
   end
 end
