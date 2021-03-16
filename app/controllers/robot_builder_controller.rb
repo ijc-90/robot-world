@@ -8,7 +8,7 @@ class RobotBuilderController < ApplicationController
     for i in 1..params[:quantity].to_i
     	model_for_this_car = models[rand(l)]
     	puts "this model  #{model_for_this_car.id} "
-    	car = Car.new(model_id: model_for_this_car.id, virtual_stock:'basic_queue',wheels: 'pending' ,chassis: 'pending' ,laser: 'pending' ,computer: 'pending' ,engine: 'pending' ,year: 2021 ,cost: 1 )
+    	car = Car.new(model_id: model_for_this_car.id, virtual_stock:'basic_queue',wheels: 'pending' ,chassis: 'pending' ,laser: 'pending' ,computer: 'pending' ,engine: 'pending' ,year: 2021 ,cost: model_for_this_car.cost )
     	created_cars.push(car)
     end
     created_cars.each(&:save)

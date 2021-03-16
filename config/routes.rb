@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
 	post "/quality_control_and_transportation", to: "quality_control_and_transportation#move_to_destination"
 
-	post "/purchase", to: "sale#purchase_random_car"
+	post "/purchase-random", to: "sale#purchase_random_car"
+	
+	post "/purchase/:model_id", to: "sale#purchase"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
