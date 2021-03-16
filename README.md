@@ -28,3 +28,7 @@ INSERT INTO public.models (id, name, created_at, updated_at, cost, price) VALUES
 INSERT INTO public.models (id, name, created_at, updated_at, cost, price) VALUES (10, 'alfa romeo', '2021-03-13 16:55:52.676136', '2021-03-13 16:55:52.676136', 50, 100);
 INSERT INTO public.models (id, name, created_at, updated_at, cost, price) VALUES (11, 'audi', '2021-03-13 16:55:52.676136', '2021-03-13 16:55:52.676136', 55, 110);
 ```
+
+### Available endpoints 
+Examples of available endpoints are on the file postman-robot-world.json
+Import this file into postman
