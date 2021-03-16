@@ -1,5 +1,36 @@
 class SaleController < ApplicationController
   skip_before_action :verify_authenticity_token
+
+  def change_model_or_refund
+    sale_id = params[:sale_id]
+    new_model_id = params[:new_model_id]
+    new_model = Model.find(new_model_id.to_i)
+    sale = Sale.find(sale_id.to_i)
+    car_refunded = Car.find(sale.car_id)
+    car_for_sale = Car.where("virtual_stock = 'store_stock' and model_id = #{new_model_id}").limit(1)
+    if car_for_sale.length() == 0
+        sale.status = 'refunded'
+        car_refunded.virtual_stock = 'store_stock'
+        car_refunded.save()
+        sale.save()
+        render :layout => false , :json => {action:"refund", amount:sale.price}
+    else
+        car = car_for_sale[0]
+        car.virtual_stock = 'sold'
+        car_refunded.virtual_stock = 'store_stock'
+        old_price = sale.price
+        new_price = new_model.price
+        sale.price = new_price
+        sale.car_id = car.id
+        sale.save()
+        car.save()
+        car_refunded.save()
+
+        render :layout => false , :json => {action:"change_model", new_car_id: car.id, aditional_pay: new_price - old_price}
+    end
+
+
+  end
   
   def purchase
     created_cars = []
