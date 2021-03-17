@@ -1,0 +1,2 @@
+class CustomerComplain < ApplicationRecord
+end

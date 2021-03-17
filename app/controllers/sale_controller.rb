@@ -60,6 +60,8 @@ class SaleController < ApplicationController
         else
             factory_stock_available = false
         end
+        complain = CustomerComplain.new(complain_type: 'no_stock_for_purchase', description: "trying to buy #{model.name} but no stock found. Stock in factory: #{factory_stock_available}")
+        complain.save()
 
         @success = false
         response = {

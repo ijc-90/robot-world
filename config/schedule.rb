@@ -48,6 +48,6 @@ every 30.minutes do
 end
 
 every :minute do 
-	#create 10 cars every minute
+	#purchase 1 car
 	command 'ruby /Users/joaquinconsoni/workspace/robot-world/robot-world/scripts/purchase-robot.rb > ~/Desktop/robot-world-output.txt' 
 end
